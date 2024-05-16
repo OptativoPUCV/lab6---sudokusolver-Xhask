@@ -56,12 +56,14 @@ List* get_adj_nodes(Node* n){
    for(i=0;i<9;i++){
        for(j=0;j<9;j++){
           if(n->sudo[i][j]==0){
-              Node* adj=copy(n);
-              adj->sudo[i][j]=2;
-              pushBack(list,adj);
+             for (int k = 1; k <= 9; k++){   
+               Node* adj=copy(n);
+               adj->sudo[i][j]=k;
+               pushBack(list,adj);
             }
           }
        }
+   }
    return list;
 }   
 
